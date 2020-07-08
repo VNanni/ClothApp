@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tool:context=".fragment.Classifyfragment">
+
+
+<!--    下拉刷新，上拉加载控件-->
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/reflashlayout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        >
+<!--        android:layout_marginTop="10dp"-->
+
+
+<!--        商品列表的recycleview-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/reflash_recycler_view"
+            android:layout_height="wrap_content"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </com.cjj.MaterialRefreshLayout>
+
+</RelativeLayout>

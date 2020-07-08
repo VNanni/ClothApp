@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MToolBar">
+        <attr name="leftButton" format="reference"/>
+        <attr name="rightButton" format="reference"/>
+        <attr name="myTitle" format="string"/>
+    </declare-styleable>
+    
+    <declare-styleable name="CardView">
+        <attr name="cardBackgroundColor" format="color"/>
+        <attr name="cardCornerRadius" format="dimension"/>
+        <attr name="cardPaddingTop" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="RoundView">
+        <attr name="type" format="enum">
+            <enum name="circle" value="1"/>
+            <enum name="round" value="2"/>
+        </attr>
+        <attr name="radius" format="dimension"/>ssss
+    </declare-styleable>
+</resources>
