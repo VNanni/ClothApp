@@ -129,9 +129,9 @@ public class Classifyfragment extends Fragment {
     private void SetItemList(){
         switch (mstate){
             case STATIC:
-                mrecycleadapter = new GoodsListApapter(Goods);
+                mrecycleadapter = new GoodsListApapter(Goods, getContext());
                 mrecyclerview.setAdapter(mrecycleadapter);
-                mrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+//                mrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
                 mrecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),2));
                 mrecyclerview.setItemAnimator(new DefaultItemAnimator());
                 mrecyclerview.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,8 +27,11 @@ public class GoodsListApapter extends RecyclerView.Adapter<GoodsListApapter.Good
 
     private List<HttpHomeCategoty>httpgoods;
 
-    public GoodsListApapter(List<HttpHomeCategoty> httpgoods) {
+    private Context thiscontext;
+
+    public GoodsListApapter(List<HttpHomeCategoty> httpgoods, Context context) {
         this.httpgoods = httpgoods;
+        thiscontext = context;
     }
 
     public void setGoodslistener(GoodsClick goodslistener) {
@@ -74,6 +78,7 @@ public class GoodsListApapter extends RecyclerView.Adapter<GoodsListApapter.Good
         @Override
         public void onClick(View v) {
             if(goodslistener!=null){
+                Toast.makeText(thiscontext, "wode", Toast.LENGTH_LONG).show();
             }
         }
     }
