@@ -4,4 +4,11 @@
     <string name="classify">分类</string>
     <string name="my">我的</string>
     <string name="toolbaraction">设置</string>
+    <string name="sourceaddress">发货</string>
+    <string name="soldcounttext">月销量</string>
+    <string name="addtocart">加入购物车</string>
+    <string name="nowbuy">立即购买</string>
+    <string name="guarantee">保障</string>
+    <string name="selectgoods">选择</string>
+    <string name="allcomment">所有评论</string>
 </resources>

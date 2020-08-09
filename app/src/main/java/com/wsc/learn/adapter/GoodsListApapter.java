@@ -1,6 +1,7 @@
 package com.wsc.learn.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
 import com.wsc.learn.MainActivity;
 import com.wsc.learn.R;
+import com.wsc.learn.ToDetailInfoActivity;
 import com.wsc.learn.bean.HttpHomeCategoty;
 
 import java.util.List;
@@ -78,7 +80,7 @@ public class GoodsListApapter extends RecyclerView.Adapter<GoodsListApapter.Good
         @Override
         public void onClick(View v) {
             if(goodslistener!=null){
-                Toast.makeText(thiscontext, "wode", Toast.LENGTH_LONG).show();
+                goodslistener.OnGoodsClick(v);
             }
         }
     }

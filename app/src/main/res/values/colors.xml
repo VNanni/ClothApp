@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#FFD700</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="gainsboro">#EDEDED</color> <!--淡灰色 -->
+    <color name="lightgray">#DFDFDF</color> <!--亮灰色 -->
+    <color name="lightgreen">#00EE00</color>
+    <color name="lightyellow">#EEEE00</color>
 </resources>

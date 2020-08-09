@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <!--    下拉刷新，上拉加载控件-->
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/detailreflash"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <!--        商品列表的recycleview-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/detail_reflash_recyclerview"
+            android:layout_height="wrap_content"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+    </com.cjj.MaterialRefreshLayout>
+
+    //底部按钮
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/buy_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nowbuy"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btn_circleconner"/>
+
+        <Button
+            android:id="@+id/shopcart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addtocart"
+            android:layout_toStartOf="@+id/buy_now"
+            android:paddingEnd="5dp"
+            android:background="@drawable/btn_circleconner_1"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

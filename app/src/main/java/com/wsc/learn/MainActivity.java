@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,55 +14,45 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.wsc.learn.bean.HttpHomeCategoty;
 import com.wsc.learn.bean.Tab;
 import com.wsc.learn.fragment.Homefragment;
 import com.wsc.learn.fragment.Myfragment;
 import com.wsc.learn.fragment.Topmenus;
+import com.wsc.learn.http.OkHttpHelper;
+import com.wsc.learn.http.SpotCallBack;
 import com.wsc.learn.widget.FragmentTabHost;
 import com.wsc.learn.widget.MToolBar;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private FragmentTabHost mtabhost;
     private LayoutInflater mlayoutflater;
     private List<Tab> mtab = new ArrayList<>(3);
-    private MToolBar mtoolbar;
+//    private MToolBar mtoolbar;
+
 
     public static int Screenwidth;
     public static int Screenheight;
 
-//    private final int[] tab_text = new int[]{R.string.home, R.string.classify, R.string.my};
-//    private final int[] tab_img = new int[]{R.mipmap.icon_home, R.mipmap.icon_discover, R.mipmap.icon_user};
-//
-//    @BindView(R.id.viewpage)
-//    ViewPager viewPager;
-//
-//    @BindView(R.id.tablayout)
-//    TabLayout mtablayout;
-//
-//    PagerAdapter madapter;
+    public static List<HttpHomeCategoty> mhttpcategory;
+    private OkHttpHelper httphelp = OkHttpHelper.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        //第二次代码
-//        ButterKnife.bind(this);
-//
-//        initTabSecond();
-//
-//        SetTab(mtablayout, getLayoutInflater(), tab_text, tab_img);
-
-        ///// 第一次代码
-        mtoolbar = findViewById(R.id.mytoolbar);
 
         mlayoutflater = LayoutInflater.from(this);
         mtabhost = this.findViewById(android.R.id.tabhost);
         mtabhost.setup(this,getSupportFragmentManager(),R.id.realtab);
         initTab();
-//
+
+        ///获取手机屏幕宽度
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
@@ -71,44 +62,12 @@ public class MainActivity extends AppCompatActivity {
         ///Freco初始化
         Fresco.initialize(MainActivity.this);
 
-    }
 
-//    private void initTabSecond(){
-//        madapter = new MainPageTabAdapter(getSupportFragmentManager());
-//        viewPager.setAdapter(madapter);
-//
-//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mtablayout));
-//        mtablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                viewPager.setCurrentItem(tab.getPosition(), true);
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//    }
-//
-//    private void SetTab(TabLayout mtablayout, LayoutInflater layoutInflater, int[] tab_text, int[] tab_img) {
-//        for (int i=0;i<tab_text.length;i++){
-//            TabLayout.Tab temptab = mtablayout.newTab();
-//            View view = layoutInflater.inflate(R.layout.tab_indicate, null);
-//            temptab.setCustomView(view);
-//
-//            TextView textView = view.findViewById(R.id.tab_text);
-//            textView.setText(tab_text[i]);
-//            ImageView imgview = view.findViewById(R.id.tab_icon);
-//            imgview.setImageResource(tab_img[i]);
-//            mtablayout.addTab(temptab);
-//        }
-//    }
+        //获取商品信息
+        mhttpcategory= new ArrayList<>();
+        httpGetImage();
+
+    }
 
 
     //第一次代码/////
@@ -136,4 +95,23 @@ public class MainActivity extends AppCompatActivity {
         return view;
     }
     /////第一次代码////
+
+
+    ///获取网络图片
+    private void httpGetImage(){
+        String url = "http://112.124.4.168/clothurl.html";
+        httphelp.get(url, new SpotCallBack<List<HttpHomeCategoty>>(this){
+            @Override
+            public void onSuccess(Response response, List<HttpHomeCategoty> httpHomeCategoties) {
+                Log.d("wode","ssuccess");
+                mhttpcategory = httpHomeCategoties;
+                Log.d("we","success");
+            }
+
+            @Override
+            public void onError(Response response, int code, Exception e) {
+
+            }
+        }, "HttpHomeCategoty");
+    }
 }

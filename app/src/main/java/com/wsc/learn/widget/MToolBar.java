@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.appcompat.widget.Toolbar;
@@ -64,12 +66,22 @@ public class MToolBar extends Toolbar {
             mtextview.setText(title);
             LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL);
             addView(mview, lp);
+            setLeftbuttonListen();
         }
     }
 
-    public void setRightbuttonListen(OnClickListener li){
-        rightbuttonview.setOnClickListener(li);
+    //顶部左键监听事件
+    public void setLeftbuttonListen(){
+        leftbuttonview.setOnClickListener(v -> {
+            Toast.makeText(getContext(),"return",Toast.LENGTH_LONG).show();
+        });
+    }
 
+    //顶部右键监听事件
+    public void setRightbuttonListen(){
+        rightbuttonview.setOnClickListener(v -> {
+
+        });
     }
 
     @Override

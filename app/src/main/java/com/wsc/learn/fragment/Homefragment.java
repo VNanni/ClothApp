@@ -44,25 +44,22 @@ import okhttp3.Response;
 
 public class Homefragment extends Fragment {
     private SliderLayout mslidelayout;
-    PagerIndicator mpageIndicator;
+    private PagerIndicator mpageIndicator;
 
 
     //// RecyclerView ////
     private RecyclerView mrecyclerview;
-    private MyRecycleAdapter mrecycleadapter;
     private List<HomeCategoryCard> homeCategoryCards;
 
     //// CategoryCardView ////
     private HomeCatgoryAdapter mhomecardadapter;
 
     //// OKHttp ////
-    private Gson mgson = new Gson();
     private List<HttpHomeCategoty> mhttpcategory;
 
     private OkHttpHelper httphelp = OkHttpHelper.getInstance();
 
     public Homefragment() {
-        this.mpageIndicator = mpageIndicator;
         this.homeCategoryCards = new ArrayList<>();
     }
 
@@ -109,12 +106,7 @@ public class Homefragment extends Fragment {
                 TextSliderView textSliderView = new TextSliderView(this.getActivity());
                 textSliderView.image(httpcategory.getPicurl());
                 textSliderView.description(httpcategory.getName());
-                textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-                    @Override
-                    public void onSliderClick(BaseSliderView slider) {
-                        Toast.makeText(getActivity(),"First",Toast.LENGTH_LONG).show();
-                    }
-                });
+                textSliderView.setOnSliderClickListener(slider -> Toast.makeText(getActivity(),"First",Toast.LENGTH_LONG).show());
                 mslidelayout.addSlider(textSliderView);
                 tmcount+=1;
             }
@@ -174,12 +166,9 @@ public class Homefragment extends Fragment {
     private void initRecycleVDate(List<HttpHomeCategoty> HttpCategory){
         ConvertToCategoryCards(HttpCategory);
         mhomecardadapter = new HomeCatgoryAdapter(homeCategoryCards, getActivity());
-        mhomecardadapter.setHCategoryClick(new HomeCatgoryAdapter.OnHomeCategoryClick() {
-            @Override
-            public void onClick(View view, HomeCategoryInCard hcc) {
-                ////添加点击图片事件
-                Toast.makeText(getContext(),"title"+hcc.getLinkurl(),Toast.LENGTH_LONG).show();
-            }
+        mhomecardadapter.setHCategoryClick((view, hcc) -> {
+            ////添加点击图片事件
+            Toast.makeText(getContext(),"title"+hcc.getLinkurl(),Toast.LENGTH_LONG).show();
         });
         mrecyclerview.setAdapter(mhomecardadapter);
         mrecyclerview.addItemDecoration(new DivideDecortion());

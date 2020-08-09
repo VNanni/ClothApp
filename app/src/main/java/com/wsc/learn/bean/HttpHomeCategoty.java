@@ -5,6 +5,12 @@ public class HttpHomeCategoty extends BaseBean {
     private String linkurl;
     private String name;
 
+    public HttpHomeCategoty(String picurl, String linkurl, String name) {
+        this.picurl = picurl;
+        this.linkurl = linkurl;
+        this.name = name;
+    }
+
     public String getPicurl() {
         return picurl;
     }

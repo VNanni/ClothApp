@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--        商品列表的recycleview-->
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/detail_slider"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        />
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/detail_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        custom:selected_color="#555555"
+        custom:unselected_color="#55555555"
+        custom:shape="oval"
+        custom:selected_padding_left="3dp"
+        custom:selected_padding_right="3dp"
+        custom:unselected_padding_left="3dp"
+        custom:unselected_padding_right="3dp"
+        custom:selected_width="8dp"
+        custom:selected_height="8dp"
+        custom:unselected_width="4dp"
+        custom:unselected_height="4dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:id="@+id/price_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/detail_slider">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_price"
+            android:textColor="@color/material_red"
+            android:textSize="30sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_goodsname"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/detail_line_1"
+        android:layout_below="@+id/price_card"
+        style="@style/line_vertical_gray" />
+
+    <RelativeLayout
+        android:id="@+id/addresscard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/detail_line_1">
+
+        <TextView
+            android:id="@+id/addresstext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sourceaddress"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:layout_toEndOf="@+id/addresstext"
+            android:paddingStart="20dp"
+            android:id="@+id/source_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/soldcounttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/soldcounttext"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"/>
+
+        <TextView
+            android:id="@+id/soldcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/detail_line_2"
+        android:layout_below="@+id/addresscard"
+        style="@style/line_vertical_gray" />
+
+<!--    保障信息-->
+    <RelativeLayout
+        android:id="@+id/guarantee_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_line_2">
+        <TextView
+            android:id="@+id/gurantee_statictext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guarantee"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:id="@+id/gurantee_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/gurantee_statictext"
+            android:paddingStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/gurantee_arror"
+            android:layout_width="10dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="TODO" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/detail_line_3"
+        android:layout_below="@+id/guarantee_card"
+        style="@style/line_vertical_gray" />
+
+<!--    选择商品-->
+    <RelativeLayout
+        android:id="@+id/select_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_line_3">
+        <TextView
+            android:id="@+id/select_goods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selectgoods"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="5dp"/>
+
+
+        <ImageView
+            android:id="@+id/select_arror"
+            android:layout_width="10dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="TODO" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/detail_line_4"
+        android:layout_below="@+id/select_card"
+        style="@style/line_vertical_gray" />
+
+    <RelativeLayout
+        android:id="@+id/comment_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_line_4">
+        <TextView
+            android:id="@+id/all_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/allcomment"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="5dp"/>
+
+        <ImageView
+            android:id="@+id/comment_arror"
+            android:layout_width="10dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="TODO" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/detail_line_5"
+        android:layout_below="@+id/comment_card"
+        style="@style/line_vertical_gray" />
+
+</RelativeLayout>
